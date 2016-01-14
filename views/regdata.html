@@ -1,0 +1,276 @@
+<div data-ng-controller="RegdataCtrl" class="container-fluid">
+	<div class="container list-group">
+		<li class="list-group-item userform bg00">
+			<h1>Registračné údaje</h1>
+		</li>
+		<li class="list-group-item userform bg02" data-ng-show="clientData.uid"> 
+			<h2><a href="javascript:void(0)" data-ng-click="ToggleUserdataSelection(0)">Registrácia</a>
+				<button type="button" class="btn btn-link pull-right" data-ng-click="ToggleUserdataSelection(0)">
+					<span data-ng-show="showUserdataSection[0]" class="glyphicon glyphicon-folder-close"></span>
+					<span data-ng-hide="showUserdataSection[0]" class="glyphicon glyphicon-folder-open"></span>
+				</button>
+			</h2>
+			<div collapse="showUserdataSection[0]">
+				<div class="form-horizontal" role="form">
+					<div class="form-group">
+						<label for="usr" class="col-sm-2 control-label">Používateľ</label>
+						<div class="col-sm-9">
+							<input type="text" data-ng-model="regdata.data1.username" class="form-control" disabled >
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="email" class="col-sm-2 control-label">e-mail</label>
+						<div class="col-sm-9">
+							<input type="email" checkinput="regdata.data1.email" checkgrp="1" data-ng-maxlength="64" class="form-control" placeholder="Zadajte Vašu novú adresu pre elektronickú poštu ">
+						</div>
+					</div>
+					<div class="form-group ">
+						<div class="col-sm-offset-2 col-sm-9">
+							<button class="btn btn-primary" data-ng-click="SaveRegdata(1)">Uložiť novú adresu</button>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="pwd" class="col-sm-2 control-label">Staré heslo</label>
+						<div class="col-sm-9">
+							<input type="password" checkinput="regdata.data2.pwd" checkgrp="2" data-ng-maxlength="32" class="form-control" placeholder="Zadajte Vaše prístupové heslo">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="pwd" class="col-sm-2 control-label">Nové heslo</label>
+						<div class="col-sm-9">
+							<input type="password" checkinput="regdata.data2.npwd" checkgrp="2" data-ng-maxlength="32" class="form-control" placeholder="Zadajte Vaše nové prístupové heslo">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="pwd" class="col-sm-2 control-label">Kontrola</label>
+						<div class="col-sm-9">
+							<input type="password" checkinput="npwd2" checkgrp="2" data-ng-maxlength="32" class="form-control" placeholder="Zadajte pre kontrolu Vaše nové prístupové heslo">
+						</div>
+					</div>
+					<div class="form-group ">
+						<div class="col-sm-offset-2 col-sm-9">
+							<button class="btn btn-primary" data-ng-click="SaveRegdata(2)">Uložiť nové heslo</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="list-group-item userform bg10" data-ng-show="clientData.uid">
+			<h2><a href="javascript:void(0)" data-ng-click="ToggleUserdataSelection(2)">Fakturačná adresa</a>
+				<button type="button" class="btn btn-link pull-right" data-ng-click="ToggleUserdataSelection(2)">
+					<span data-ng-show="showUserdataSection[2]" class="glyphicon glyphicon-folder-close"></span>
+					<span data-ng-hide="showUserdataSection[2]" class="glyphicon glyphicon-folder-open"></span>
+				</button>
+			</h2>
+			<div collapse="showUserdataSection[2]">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label for="userdata_title" class="col-sm-2 control-label">Titul</label>
+						<div class="col-sm-2">
+							<input type="text" checkinput="regdata.data3.title" checkgrp="3" data-ng-maxlength="10" class="form-control" placeholder="Zadajte titul">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_name" class="col-sm-2 control-label">Meno</label>
+						<div class="col-sm-8">
+							<input type="text" checkinput="regdata.data3.name" checkgrp="3" data-ng-maxlength="50" class="form-control" placeholder="Zadajte meno">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_surname" class="col-sm-2 control-label">Priezvisko</label>
+						<div class="col-sm-8">
+							<input type="text" checkinput="regdata.data3.surname" checkgrp="3" data-ng-maxlength="50" class="form-control" placeholder="Zadajte priezvisko">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_company" class="col-sm-2 control-label">Firma</label>
+						<div class="col-sm-8">
+							<input type="text" checkinput="regdata.data3.company" checkgrp="3" data-ng-maxlength="150" class="form-control" placeholder="Zadajte firmu">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_ico" class="col-sm-2 control-label">IČO</label>
+						<div class="col-sm-4">
+							<input type="text" checkinput="regdata.data3.ico" checkgrp="3" data-ng-maxlength="10" class="form-control" placeholder="Zadajte IČO organizácie">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dic" class="col-sm-2 control-label">DIČ</label>
+						<div class="col-sm-4">
+							<input type="text" checkinput="regdata.data3.dic" checkgrp="3" data-ng-maxlength="10" class="form-control" placeholder="Zadajte DIČ organizácie">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_icdph" class="col-sm-2 control-label">IČ DPH</label>
+						<div class="col-sm-4">
+							<input type="text" checkinput="regdata.data3.icdph" checkgrp="3" data-ng-maxlength="10" class="form-control" placeholder="Zadajte IČ DPH organizácie">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="userdata_phone" class="col-sm-2 control-label">Telefón</label>
+						<div class="col-sm-4">
+							<input type="text" checkinput="regdata.data3.phone" checkgrp="3" data-ng-maxlength="30" class="form-control" placeholder="Zadajte telefónne číslo">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_mobil" class="col-sm-2 control-label">Mobil</label>
+						<div class="col-sm-4">
+							<input type="text" checkinput="regdata.data3.mobil" checkgrp="3" data-ng-maxlength="30" class="form-control" placeholder="Zadajte mobilné číslo">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_street" class="col-sm-2 control-label">Ulica</label>
+						<div class="col-sm-8">
+							<input type="text" checkinput="regdata.data3.street" checkgrp="3" data-ng-maxlength="100" class="form-control" placeholder="Zadajte ulicu">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_zip" class="col-sm-2 control-label">PSČ</label>
+						<div class="col-sm-2">
+							<input type="text" checkinput="regdata.data3.zip" checkgrp="3" data-ng-maxlength="8" class="form-control" placeholder="Zadajte PSČ">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_city" class="col-sm-2 control-label">Obec</label>
+						<div class="col-sm-8">
+							<input type="text" checkinput="regdata.data3.city" checkgrp="3" data-ng-maxlength="100" class="form-control" placeholder="Zadajte obec alebo mesto">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="usrcountry" class="col-sm-2 control-label">Štát</label>
+						<div class="dropdown col-sm-4">
+							<div id="usrcountry" class="form-control dropdown-toggle" data-toggle="dropdown">
+								<span >{{regdata.data3.country}}</span>&nbsp;								
+								<span class="glyphicon glyphicon-chevron-down pull-right"></span>
+							</div>
+							<ul class="dropdown-menu col-sm-11" role="menu">
+								<li data-ng-repeat="itemc in regdata.countries">
+									<button class="btn-link" data-ng-click="regdata.data3.country=itemc">{{itemc}}</button>
+								</li>
+							</ul>							
+						</div>
+					</div>
+					<div class="form-group ">
+						<div class="col-sm-offset-2 col-sm-9">
+							<button class="btn btn-primary" data-ng-click="SaveRegdata(3)">Uložiť fakturačné údaje</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="list-group-item userform bg09" data-ng-show="clientData.uid">
+			<h2><a href="javascript:void(0)" data-ng-click="ToggleUserdataSelection(1)">Dodacia adresa</a>
+				<button type="button" class="btn btn-link pull-right" data-ng-click="ToggleUserdataSelection(1)">
+					<span data-ng-show="showUserdataSection[1]" class="glyphicon glyphicon-folder-close"></span>
+					<span data-ng-hide="showUserdataSection[1]" class="glyphicon glyphicon-folder-open"></span>
+				</button>
+			</h2>
+			<div collapse="showUserdataSection[1]">				
+				<div class="form-horizontal" role="form">
+					<div class="form-group"><div class="col-sm-10"><i>Vyplniť v prípade, ak je adresa iná ako je fakturačná adresa</i></div></div>
+					<div class="form-group">
+						<label for="userdata_dtitle" class="col-sm-2 control-label">Titul</label>
+						<div class="col-sm-2">
+							<input type="text" data-ng-maxlength="10" class="form-control" checkinput="regdata.data4.dtitle" placeholder="Zadajte titul">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dname" class="col-sm-2 control-label">Meno</label>
+						<div class="col-sm-8">
+							<input type="text" data-ng-maxlength="50" class="form-control" checkinput="regdata.data4.dname" placeholder="Zadajte meno">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dsurname" class="col-sm-2 control-label">Priezvisko</label>
+						<div class="col-sm-8">
+							<input type="text" data-ng-maxlength="50" class="form-control" checkinput="regdata.data4.dsurname" placeholder="Zadajte priezvisko">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dcompany" class="col-sm-2 control-label">Firma</label>
+						<div class="col-sm-8">
+							<input type="text" data-ng-maxlength="150" class="form-control" checkinput="regdata.data4.dcompany" placeholder="Zadajte firmu">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dphone" class="col-sm-2 control-label">Telefón</label>
+						<div class="col-sm-4">
+							<input type="text" data-ng-maxlength="30" class="form-control" checkinput="regdata.data4.dphone" placeholder="Zadajte telefónne číslo">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dmobil" class="col-sm-2 control-label">Mobil</label>
+						<div class="col-sm-4">
+							<input type="text" data-ng-maxlength="30" class="form-control" checkinput="regdata.data4.dmobil" placeholder="Zadajte mobilné číslo">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dstreet" class="col-sm-2 control-label">Ulica</label>
+						<div class="col-sm-8">
+							<input type="text" data-ng-maxlength="100" class="form-control" checkinput="regdata.data4.dstreet" placeholder="Zadajte ulicu">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dzip" class="col-sm-2 control-label">PSČ</label>
+						<div class="col-sm-2">
+							<input type="text" data-ng-maxlength="8" class="form-control" checkinput="regdata.data4.dzip" placeholder="Zadajte PSČ">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dcity" class="col-sm-2 control-label">Obec</label>
+						<div class="col-sm-8">
+							<input type="text" data-ng-maxlength="100" class="form-control" checkinput="regdata.data4.dcity" placeholder="Zadajte obec alebo mesto">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="usrdcountry" class="col-sm-2 control-label">Štát</label>
+						<div class="dropdown col-sm-4">
+							<div id="usrdcountry" class="form-control dropdown-toggle" data-toggle="dropdown">
+								<span >{{regdata.data4.dcountry}}</span>&nbsp;								
+								<span class="glyphicon glyphicon-chevron-down pull-right"></span>
+							</div>
+							<ul class="dropdown-menu col-sm-11" role="menu">
+								<li data-ng-repeat="itemc in regdata.countries">
+									<button class="btn-link" data-ng-click="regdata.data4.dcountry=itemc">{{itemc}}</button>
+								</li>
+							</ul>							
+						</div>
+					</div>
+					<div class="form-group ">
+						<div class="col-sm-offset-2 col-sm-9">
+							<button class="btn btn-success" data-ng-click="SaveRegdata(4)">Uložiť dodaciu adresu</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="list-group-item userform bg05" data-ng-show="clientData.uid">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<div class="col-sm-12">			
+					<p>Všetky poskytnuté osobné údaje sú chránené v zmysle zákona číslo 428/2002 Zbierky zákonov „O ochrane osobných údajov“. 
+						Prevádzkovateľ Vás na písomné požiadanie vyradí z ktorejkoľvek zaregistrovanej služby.
+					</p>
+					<p>
+						<div>
+							Súhlasím so spracovaním mojich osobných údajov
+							<div class="btn-group">
+								<button type="button" class="btn btn-success btn-xs" data-ng-model="persdata" btn-radio="1">&nbsp;Áno&nbsp;</button>
+								<button type="button" class="btn btn-danger btn-xs" data-ng-model="persdata" btn-radio="0" data-ng-click="NoPersData()">&nbsp;Nie&nbsp;</button>
+							</div>
+						</div>
+					</p>
+					<p>
+						<div>Súhlasím so zasielaním nových informácií o produktoch
+						<div class="btn-group">
+								<button type="button" class="btn btn-success btn-xs" data-ng-model="regdata.data5.sendemail" btn-radio="'1'" data-ng-click="SaveEmail(1)">&nbsp;Áno&nbsp;</button>
+								<button type="button" class="btn btn-danger btn-xs" data-ng-model="regdata.data5.sendemail" btn-radio="'0'" data-ng-click="SaveEmail(0)">&nbsp;Nie&nbsp;</button>
+							</div>
+						</div>
+					</p>
+				</div>
+			</div>
+		</li>
+	</div>
+</div>

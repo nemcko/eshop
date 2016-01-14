@@ -1,0 +1,19 @@
+<div class="modal-header">
+	<button type="button" class="close" data-ng-click="cancel()">&times;</button>
+	<h2>Značka <small>detail</small></h2>	
+</div>
+<div class="modal-body">
+	<div class="form-horizontal" role="form">
+		<div class="form-group">
+			<label class="control-label col-md-2">Značka</label>
+			<div class="col-md-5">
+				<input type="text" class="form-control" data-ng-model="data.sbrand"   tooltip="Kód zakázanej značky" />
+			</div>
+		</div>
+				
+	</div>        	
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" data-ng-click="ok()">OK</button>
+	<button class="btn btn-warning" data-ng-click="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,40 @@
+<div class="modal-content userform bg12 msgbox" data-ng-switch="type">
+<div data-ng-switch-default>
+	<div class="modal-body" >
+		<button type="button" class="btn default close pull-right" data-ng-click="cancel()"><span class="glyphicon glyphicon-remove"></span></button>
+		<h3 data-ng-class="{inlinetag: notitle}"><span data-ng-class="icon"></span>&nbsp;{{title}}</h3>
+		<div class="inlinetag" data-ng-bind-html="message"></div>
+	</div>
+</div>
+<div data-ng-switch-when="ok">
+	<div class="modal-body">
+		<h3 data-ng-class="{inlinetag: notitle}"><span data-ng-class="icon"></span>&nbsp;{{title}}</h3>
+		<div class="inlinetag" data-ng-bind-html="message"></div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" ng-click="Close('ok')">OK</button>
+	</div>
+</div>
+<div data-ng-switch-when="yes-no">
+	<div class="modal-body">
+		<h3 data-ng-class="{inlinetag: notitle}"><span data-ng-class="icon"></span>&nbsp;{{title}}</h3>
+		<div class="inlinetag" data-ng-bind-html="message"></div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-danger" ng-click="Close('no')">Nie</button>
+		<button class="btn btn-success" ng-click="Close('yes')">Áno</button>
+	</div>
+</div>
+<div data-ng-switch-when="yes-no-cancel">
+	<div class="modal-body">
+		<h3 data-ng-class="{inlinetag: notitle}"><span data-ng-class="icon"></span>&nbsp;{{title}}</h3>
+		<div class="inlinetag" data-ng-bind-html="message"></div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary pull-left" ng-click="cancel()">Návrat</button>
+		<button class="btn btn-danger" ng-click="Close('no')">Nie</button>
+		<button class="btn btn-success" ng-click="Close('yes')">Áno</button>
+	</div>
+</div>
+
+</div>

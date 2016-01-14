@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="pg-header">
+	<h1>Aliasy <small>{{subtitle}} {{parentobj.name_sk}} <small>{{parentobj.idpro}}</small></small></h1>
+	</div>
+	
+	<div class="form-inline form-group col-md-12" role="form">
+		<div class="form-group" data-ng-show="!showNew">
+			<input type="text" class="form-control" id="txtSearch"
+				placeholder="Vyhľadať" ng_model="filterOptions.filterText" />
+		</div>
+		<button class="btn btn-primary" data-ng-show="showNew" data-ng-click="DlgOpen(true)">Nový alias</button>
+		<button class="btn btn-info" data-ng-click="DlgOpen(false)">Zmena</button>
+		<button class="btn btn-danger" data-ng-click="DelRow()">Vymazať</button>
+		<button class="btn btn-default" data-ng-show="showNew" data-ng-click="goToState('product',false)">Produkty</button>		
+		<button type="button" class="btn btn-success" data-ng-click="Refresh()"><span class="glyphicon glyphicon-refresh"></span></button>
+		
+	</div>
+	<div class="gridStyle col-md-10" data-ng-grid="gridOptions" data-ng-dblclick="DlgOpen(false);"></div>
+</div>

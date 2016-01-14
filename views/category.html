@@ -1,0 +1,153 @@
+<div data-ng-controller="CategoryCtrl">
+	<div id="filtermenu">
+		<span class="btn btn-lg glyphicon glyphicon-filter"></span> 
+		<div id="filtermenu_inner">
+			<h2>Tovarový filter								
+				<button type="button" class="btn default btn-primary btn-sm pull-right" data-ng-click="LoadPage()"><span class="glyphicon glyphicon-ok"></span></button>
+				<button type="button" data-ng-show="(filters.colorFilterCount+filters.sizeFilterCount+filters.brandFilterCount+filters.priceFilter.priceFrom-filters.priceFilters.minPrice+filters.priceFilter.priceTo-filters.priceFilters.maxPrice)||filters.textFilter"  class="btn default btn-info btn-sm pull-right" data-ng-click="ClearFilters()"><span class="glyphicon glyphicon-remove"></span></button>
+			</h2>
+			<ul id="FilterTabs" class="nav nav-pills nav-stacked">
+				<li><a class="filtertit btn-info" href="#/{{alias}}" data-ng-click="SwitchFilterTabs(0)"><b>Farby</b><span class="badge pull-right" data-ng-show="filters.colorFilterCount">{{filters.colorFilterCount}}</span></a>
+					<div collapse="showFilterTabs[0]">
+						<div class="detail-table350">
+							<div class="checkbox" data-ng-repeat="color in filters.colorFilters">
+								<label>
+									<input type="checkbox" data-ng-model="filters.colorFields[$index]" data-ng-true-value="{{color.attr}}" data-ng-false-value="" data-ng-change="SetColorFilter()">
+									{{color.attr}}
+								</label>
+								<span class="badge pull-right">{{color.count}}</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li><a class="filtertit btn-info" href="#/{{alias}}" data-ng-click="SwitchFilterTabs(1)"><b>Veľkosti</b><span class="badge pull-right" data-ng-show="filters.sizeFilterCount">{{filters.sizeFilterCount}}</span></a>
+					<div collapse="showFilterTabs[1]">
+						<div class="detail-table350">
+							<div class="checkbox" data-ng-repeat="size in filters.sizeFilters">
+								<label>
+									<input type="checkbox" data-ng-model="filters.sizeFields[$index]" data-ng-true-value="{{size.attr}}" data-ng-false-value="" data-ng-change="SetSizeFilter()">
+									{{size.attr}}
+								</label>
+								<span class="badge pull-right">{{size.count}}</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li><a class="filtertit btn-info" href="#/{{alias}}" data-ng-click="SwitchFilterTabs(2)"><b>Značky</b><span class="badge pull-right" data-ng-show="filters.brandFilterCount">{{filters.brandFilterCount}}</span></a>
+					<div collapse="showFilterTabs[2]">
+						<div class="detail-table350">
+							<div class="checkbox" data-ng-repeat="brand in filters.brandFilters">
+								<label>
+									<input type="checkbox" data-ng-model="filters.brandFields[$index]" data-ng-true-value="{{brand.attr}}" data-ng-false-value="" data-ng-change="SetBrandFilter()">
+									{{brand.attr}}
+								</label>
+								<span class="badge pull-right">{{brand.count}}</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li><a class="filtertit btn-info" href="#/{{alias}}" data-ng-click="SwitchFilterTabs(3)"><b>Ceny</b><span class="badge pull-right" data-ng-show="filters.priceFilter.priceFrom-filters.priceFilters.minPrice+filters.priceFilter.priceTo-filters.priceFilters.maxPrice">{{filters.priceFilter.priceFrom}}-{{filters.priceFilter.priceTo}}€</span></a>
+					<div collapse="showFilterTabs[3]">
+						<table class="checkbox">
+							<tbody>
+								<tr class="text-center">
+									<td>&nbsp;</td>
+									<td><a data-ng-click="ChangeFilterPrice('+from')" class="btn btn-link"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+									<td>&nbsp;</td>
+									<td><a data-ng-click="ChangeFilterPrice('+to')" class="btn btn-link"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+								</tr>
+								<tr>
+									<td>Cena od:&nbsp;</td>
+									<td style="width:80px;" class="form-group">
+										<input type="text" data-ng-model="filters.priceFilter.priceFrom" data-ng-change="updateFilterPrice('from')" class="form-control text-center">
+									</td>
+									<td>&nbsp;do:&nbsp;</td>
+									<td style="width:80px;" class="form-group">
+										<input type="text" data-ng-model="filters.priceFilter.priceTo" data-ng-change="updateFilterPrice('to')" class="form-control text-center">
+									</td>
+								</tr>
+								<tr class="text-center">
+									<td>&nbsp;</td>
+									<td><a data-ng-click="ChangeFilterPrice('-from')" class="btn btn-link"><span class="glyphicon glyphicon-chevron-down"></span></a></td>
+									<td>&nbsp;</td>
+									<td><a data-ng-click="ChangeFilterPrice('-to')" class="btn btn-link"><span class="glyphicon glyphicon-chevron-down"></span></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</li>
+				<li><a class="filtertit btn-info" href="#/{{alias}}" data-ng-click="SwitchFilterTabs(4)"><b>Text</b><span class="badge pull-right" data-ng-show="showFilterTabs[4]&&filters.textFilter">{{filters.textFilter}}</span></a>
+					<div collapse="showFilterTabs[4]">						
+						<div class="xcheckbox">
+							<div class="searchbox">
+								<span class="glyphicon glyphicon-search search-icon"></span>
+								<input type="text"
+									class="search-text"
+									placeholder="Zadajte text"
+									ng-focus="focus=true"
+									ng-blur="focus=false"
+									ng-change="search(q)"
+									ng-model="filters.textFilter"
+									docs-search-input
+									autocomplete="off" 
+								/>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="cathead" class="container-fluid">
+		<div class="row">
+			<div class="pagination pull-left">
+				<h1>{{categoryname}}</h1>
+			</div>
+			<ul class="pagination pagination-lg pull-left">
+				<li class="dropdown">
+					<a href="#/{{alias}}" class="dropdown-toggle btn" data-toggle="dropdown"><i class="glyphicon glyphicon-resize-vertical"></i></a>
+					<ul class="dropdown-menu">
+						<li role="presentation" class="dropdown-header">Na stránku</li>
+						<li data-ng-repeat="size in pageSizes" data-ng-click="SelectPagesize(size)"><a href="#/{{alias}}">{{size.name}} produktov</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#/{{alias}}" class="dropdown-toggle btn" data-toggle="dropdown"><i class="glyphicon glyphicon-sort-by-attributes"></i></a>
+					<ul class="dropdown-menu">
+						<li role="presentation" class="dropdown-header">Zoradiť produkty</li>
+						<li data-ng-repeat="sort in sortTypes" data-ng-click="SelectSortType(sort)"><a href="#/{{alias}}">{{sort.name}}</a></li>
+					</ul>
+				</li>			
+			</ul>
+			 <pagination class="pagination pagination-lg pull-right" total-items="pageData.totalItems" page="pageData.currentPage" direction-links="false" 
+			 boundary-links="true" first-text="&laquo;" last-text="&raquo;" on-select-page="SelectPage(page)"></pagination>
+		</div>	
+	</div>
+	<div class="CategoryPage">
+		<div class="ProductView" data-ng-repeat="product in products">
+			<div class="flipper">
+				<div class="front">
+					<div loadimage="{{product.largeimg}}" cls="frontimage"></div>
+					<div class="ProductViewOPrice" data-ng-show="product.reduction>0">{{product.szoprice}}€</div>
+					<div class="ProductViewPrice"><small data-ng-show="product.numprices>1">od</small>{{product.szprice}}€</div>
+				</div>
+				<div class="back">
+					<div class="backinner">
+						<div loadimage="{{product.smallimg}}" cls="backimage"></div>
+						<div class="backbtn">	
+							<button data-ng-disabled="product.numvars>1" ngclick="$parent.AddBasketItem({{product.id}})" class="btn btn-default btn-lg backbutton"><i class="glyphicon glyphicon-shopping-cart"></i></button>
+						</div>
+						<div class="ProductViewReduction" data-ng-show="product.reduction>0"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span>{{product.szreduction}}€</div>
+						<div class="ProductViewPrice2"><small data-ng-show="product.numprices>1">od</small>{{product.szprice}}€</div>
+						<a href="#/{{alias}}" data-ng-click="ShowDetail({idpro: product.idpro})"><b>{{product.name}}</b></a>
+						<div class="backtxt">
+							<div><b data-ng-show="product.colors">Farby:</b>{{product.colors}}</div>
+							<div><b data-ng-show="product.sizes">Veľkosti</b>:{{product.sizes}}</div> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

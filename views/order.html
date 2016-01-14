@@ -1,0 +1,301 @@
+<div data-ng-controller="OrderCtrl" class="container-fluid">
+	<div class="container list-group">
+		<li class="list-group-item userform bg00">
+			<h1>Objednávka</h1>
+		</li>
+		<li class="list-group-item userform bg07"> 
+			<h2>Tovarové položky</h2>
+			<div collapse="showOrderSection[0]">
+				<table class="table">
+					<tr data-ng-repeat="item in basket.items">
+						<td><span loadimage="{{item.smallimg}}" cls="orditemimage"></span>
+						<td>
+							<a href="javascript:void(0)" data-ng-click="ShowDetail({idpro: item.idpro, sku: item.sku})">
+							<div>{{item.name}}</div>
+							<div><small data-ng-show="item.colorname">farba: {{item.colorname}}</small><small data-ng-show="item.colorname&&item.sizename">, </small> <small data-ng-show="item.sizename"> veľkosť: {{item.sizename}}</small></div>
+							</a>
+						</td>
+						<td class="col-sm-1">
+							{{item.szprice}}€
+						</td>
+						<td class="col-sm-1">
+							<input type="number" min="1" max="1000" class="pull-left text-center" data-ng-model="item.quantity" data-ng-blur="UpdOrderItem(item.id, item.quantity)" />
+						</td>
+						<td class="col-sm-1">
+							<span data-ng-click="DelOrderItem(item.id)" class="glyphicon glyphicon-trash"></span>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</li>
+		<li class="list-group-item userform bg09">
+			<h2><a href="javascript:void(0)" data-ng-click="ToggleOrderSelection(2)">Dodacia adresa</a>
+				<button type="button" class="btn btn-link pull-right" data-ng-click="ToggleOrderSelection(2)">
+					<span data-ng-show="showOrderSection[2]" class="glyphicon glyphicon-folder-close"></span>
+					<span data-ng-hide="showOrderSection[2]" class="glyphicon glyphicon-folder-open"></span>
+				</button>
+			</h2>
+			<div collapse="showOrderSection[2]">				
+				<div class="form-horizontal" role="form">
+					<div class="form-group"><div class="col-sm-10"><i>Vyplniť v prípade, ak je adresa iná ako je fakturačná adresa</i></div></div>
+					<div class="form-group">
+						<label for="userdata_dtitle" class="col-sm-2 control-label">Titul</label>
+						<div class="col-sm-2">
+							<input type="text" data-ng-maxlength="10" class="form-control" checkinput="userdata.dtitle" placeholder="Zadajte titul">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dname" class="col-sm-2 control-label">Meno</label>
+						<div class="col-sm-8">
+							<input type="text" data-ng-maxlength="50" class="form-control" checkinput="userdata.dname" placeholder="Zadajte meno">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dsurname" class="col-sm-2 control-label">Priezvisko</label>
+						<div class="col-sm-8">
+							<input type="text" data-ng-maxlength="50" class="form-control" checkinput="userdata.dsurname" placeholder="Zadajte priezvisko">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dcompany" class="col-sm-2 control-label">Firma</label>
+						<div class="col-sm-8">
+							<input type="text" data-ng-maxlength="150" class="form-control" checkinput="userdata.dcompany" placeholder="Zadajte firmu">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dphone" class="col-sm-2 control-label">Telefón</label>
+						<div class="col-sm-4">
+							<input type="text" data-ng-maxlength="30" class="form-control" checkinput="userdata.dphone" placeholder="Zadajte telefónne číslo">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dmobil" class="col-sm-2 control-label">Mobil</label>
+						<div class="col-sm-4">
+							<input type="text" data-ng-maxlength="30" class="form-control" checkinput="userdata.dmobil" placeholder="Zadajte mobilné číslo">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dstreet" class="col-sm-2 control-label">Ulica</label>
+						<div class="col-sm-8">
+							<input type="text" data-ng-maxlength="100" class="form-control" checkinput="userdata.dstreet" placeholder="Zadajte ulicu">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dzip" class="col-sm-2 control-label">PSČ</label>
+						<div class="col-sm-2">
+							<input type="text" data-ng-maxlength="8" class="form-control" checkinput="userdata.dzip" placeholder="Zadajte PSČ">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dcity" class="col-sm-2 control-label">Obec</label>
+						<div class="col-sm-8">
+							<input type="text" data-ng-maxlength="100" class="form-control" checkinput="userdata.dcity" placeholder="Zadajte obec alebo mesto">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="usrdcountry" class="col-sm-2 control-label">Štát</label>
+						<div class="dropdown col-sm-4">
+							<div id="usrdcountry" class="form-control dropdown-toggle" data-toggle="dropdown">
+								<span >{{userdata.dcountry}}</span>&nbsp;								
+								<span class="glyphicon glyphicon-chevron-down pull-right"></span>
+							</div>
+							<ul class="dropdown-menu col-sm-11" role="menu">
+								<li data-ng-repeat="itemc in delivery.countries">
+									<button class="btn-link" data-ng-click="userdata.dcountry=itemc">{{itemc}}</button>
+								</li>
+							</ul>							
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="list-group-item userform bg10">
+			<h2><a href="javascript:void(0)" data-ng-click="ToggleOrderSelection(3)">Fakturačná adresa</a>
+				<button type="button" class="btn btn-link pull-right" data-ng-click="ToggleOrderSelection(3)">
+					<span data-ng-show="showOrderSection[3]" class="glyphicon glyphicon-folder-close"></span>
+					<span data-ng-hide="showOrderSection[3]" class="glyphicon glyphicon-folder-open"></span>
+				</button>
+			</h2>
+			<div collapse="showOrderSection[3]">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label for="userdata_title" class="col-sm-2 control-label">Titul</label>
+						<div class="col-sm-2">
+							<input type="text" checkinput="userdata.title" data-ng-maxlength="10" class="form-control" placeholder="Zadajte titul">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_name" class="col-sm-2 control-label">Meno</label>
+						<div class="col-sm-8">
+							<input type="text" checkinput="userdata.name" data-ng-maxlength="50" class="form-control" placeholder="Zadajte meno">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_surname" class="col-sm-2 control-label">Priezvisko</label>
+						<div class="col-sm-8">
+							<input type="text" checkinput="userdata.surname" data-ng-maxlength="50" class="form-control" placeholder="Zadajte priezvisko">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_company" class="col-sm-2 control-label">Firma</label>
+						<div class="col-sm-8">
+							<input type="text" checkinput="userdata.company" data-ng-maxlength="150" class="form-control" placeholder="Zadajte firmu">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_ico" class="col-sm-2 control-label">IČO</label>
+						<div class="col-sm-4">
+							<input type="text" checkinput="userdata.ico" data-ng-maxlength="10" class="form-control" placeholder="Zadajte IČO organizácie">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_dic" class="col-sm-2 control-label">DIČ</label>
+						<div class="col-sm-4">
+							<input type="text" checkinput="userdata.dic" data-ng-maxlength="10" class="form-control" placeholder="Zadajte DIČ organizácie">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_icdph" class="col-sm-2 control-label">IČ DPH</label>
+						<div class="col-sm-4">
+							<input type="text" checkinput="userdata.icdph" data-ng-maxlength="10" class="form-control" placeholder="Zadajte IČ DPH organizácie">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="userdata_phone" class="col-sm-2 control-label">Telefón</label>
+						<div class="col-sm-4">
+							<input type="text" checkinput="userdata.phone" data-ng-maxlength="30" class="form-control" placeholder="Zadajte telefónne číslo">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_mobil" class="col-sm-2 control-label">Mobil</label>
+						<div class="col-sm-4">
+							<input type="text" checkinput="userdata.mobil" data-ng-maxlength="30" class="form-control" placeholder="Zadajte mobilné číslo">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_street" class="col-sm-2 control-label">Ulica</label>
+						<div class="col-sm-8">
+							<input type="text" checkinput="userdata.street" data-ng-maxlength="100" class="form-control" placeholder="Zadajte ulicu">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_zip" class="col-sm-2 control-label">PSČ</label>
+						<div class="col-sm-2">
+							<input type="text" checkinput="userdata.zip" data-ng-maxlength="8" class="form-control" placeholder="Zadajte PSČ">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userdata_city" class="col-sm-2 control-label">Obec</label>
+						<div class="col-sm-8">
+							<input type="text" checkinput="userdata.city" data-ng-maxlength="100" class="form-control" placeholder="Zadajte obec alebo mesto">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="usrcountry" class="col-sm-2 control-label">Štát</label>
+						<div class="dropdown col-sm-4">
+							<div id="usrcountry" class="form-control dropdown-toggle" data-toggle="dropdown">
+								<span >{{userdata.country}}</span>&nbsp;								
+								<span class="glyphicon glyphicon-chevron-down pull-right"></span>
+							</div>
+							<ul class="dropdown-menu col-sm-11" role="menu">
+								<li data-ng-repeat="itemc in delivery.countries">
+									<button class="btn-link" data-ng-click="SelectCountry(itemc)">{{itemc}}</button>
+								</li>
+							</ul>							
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="list-group-item userform bg05">
+			<h2><a href="javascript:void(0)" data-ng-click="ToggleOrderSelection(4)">Dodanie tovaru</a>
+				<button type="button" class="btn btn-link pull-right" data-ng-click="ToggleOrderSelection(4)">
+					<span data-ng-show="showOrderSection[4]" class="glyphicon glyphicon-folder-close"></span>
+					<span data-ng-hide="showOrderSection[4]" class="glyphicon glyphicon-folder-open"></span>
+				</button>
+			</h2>
+			<div collapse="showOrderSection[4]">
+				<div class="form-horizontal" role="form">
+					<div class="form-group">
+						<label for="delivery" class="col-sm-2 control-label">Spôsob doručenia</label>
+						<div class="dropdown col-sm-4">
+							<div id="delivery" class="form-control dropdown-toggle" data-toggle="dropdown">
+								<span >{{delivery.selDlv.name}}</span> <span ng-show="delivery.price">&nbsp;&nbsp;( {{delivery.szprice}}€ )</span>&nbsp;								
+								<span class="glyphicon glyphicon-chevron-down pull-right"></span>
+							</div>
+							<ul class="dropdown-menu col-sm-11" role="menu">
+								<li data-ng-repeat="item in delivery.items">
+									<button class="btn-link" data-ng-click="SelectDlv(item)">{{item.name}}</button>
+								</li>
+							</ul>
+							
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="paytyp" class="col-sm-2 control-label">Typ úhrady</label>
+						<div class="dropdown col-sm-4">
+							<div id="paytyp" class="form-control dropdown-toggle" data-toggle="dropdown">
+								<span >{{delivery.selDlvpay.name}}</span>  <span ng-show="delivery.selDlvpay.payprice">&nbsp;&nbsp;(+{{delivery.selDlvpay.szpayprice}}€)</span>&nbsp;								
+								<span class="glyphicon glyphicon-chevron-down pull-right"></span>
+							</div>
+							<ul class="dropdown-menu col-sm-11" role="menu">
+								<li data-ng-repeat="itemp in delivery.selDlv.dlvpay">
+									<button class="btn-link" data-ng-click="SelectDlvpay(itemp)">{{itemp.name}} <span ng-show="itemp.payprice">(+{{itemp.szpayprice}}€)</span></button>
+								</li>
+							</ul>
+							
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="list-group-item userform bg08">
+			<table class="table noborder">
+			<tr>
+				<td class="col-sm-9 text-right">Pôvodná cena tovaru s DPH :</td>
+				<td class="col-sm-1 text-right">{{basket.szIncOldVAT}}€</td>
+				<td class="col-sm-1">&nbsp;</td>
+			</tr>
+			<tr>
+				<td class="col-sm-9 text-right">Cena bez DPH :</td>
+				<td class="col-sm-1 text-right">{{basket.szExcVAT}}€</td>
+				<td class="col-sm-1">&nbsp;</td>
+			</tr>
+			<tr>
+				<td class="col-sm-9 text-right">Cena tovaru s DPH :</td>
+				<td class="col-sm-1 text-right">{{basket.szIncVAT}}€</td>
+				<td class="col-sm-1">&nbsp;</td>
+			</tr>
+			<tr>
+				<td class="col-sm-9 text-right">Celková výška zľavy :</td>
+				<td class="col-sm-1 text-right bg-danger">{{basket.szDiscount}}€</td>
+				<td class="col-sm-1">&nbsp;</td>
+			</tr>
+			<tr>
+				<td class="col-sm-9 text-right">Cena dodania :</td>
+				<td class="col-sm-1 text-right">{{basket.szDlvPrice}}€</td>
+				<td class="col-sm-1">&nbsp;</td>
+			</tr>
+			<tr>
+				<td class="col-sm-9 text-right">Celková cena objednávky :</td>
+				<td class="col-sm-1 text-right bg00"><big>{{basket.szTotalPrice}}€</big></td>
+				<td class="col-sm-1">&nbsp;</td>
+			</tr>
+			</table>
+			<div class="container-fluid">
+				<div>Poznámka k objednávke:</div>
+				<p>
+					<textarea class="col-sm-12" data-ng-model="basket.comment" rows="5"></textarea>
+				</p>
+			</div>
+			<br /><br />
+		</li>
+		<li class="list-group-item userform bg02 text-right">
+			<button class="btn btn-primary" data-ng-click="LogIn()">Prihásiť sa</button>
+			<button class="btn btn-primary" data-ng-click="NewReg()">Nová registrácia</button>
+			<button class="btn btn-success" data-ng-click="DoCheck()">Pokračovať</button>
+		</li>
+	</div>
+</div>

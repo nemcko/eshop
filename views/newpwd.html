@@ -1,0 +1,30 @@
+<div class="modal-content userform bg02" data-ng-controller="NewpwdCtrl" >
+<div class="modal-header ng-scope">
+	<button type="button" class="btn default close pull-right" data-ng-click="cancel()"><span class="glyphicon glyphicon-remove"></span></button>
+	<h3>Zabudnuté heslo</h3>
+</div>	
+	<div class="modal-body form-horizontal" role="form">
+		<div class="form-group">
+			<label for="usr" class="col-sm-2 control-label">Používateľ</label>
+			<div class="col-sm-9">
+				<input type="text" checkinput="newpwd.username" data-ng-maxlength="32" class="form-control" placeholder="Zadajte Vaše používateľské meno">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="email" class="col-sm-2 control-label">e-mail</label>
+			<div class="col-sm-9">
+				<input type="email" checkinput="newpwd.email" data-ng-maxlength="64" class="form-control" placeholder="Zadajte Vašu adresu pre elektronickú poštu ">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-9">			
+			<p>Zadaním predchádzajúcich údajov Vám na Váš e-mail bude zaslané nové vygenerované heslo, pomocou ktorého sa prihlásite 
+			do e-shopu. Následne v položke menu "Moje údaje" si ho môžete podľa potreby zmeniť.
+			</p>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary pull-left" data-ng-click="cancel()">Návrat</button>
+		<button class="btn btn-success" data-ng-click="CheckData()">Vyžiadať nové heslo</button>		
+	</div>
+</div>

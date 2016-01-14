@@ -1,0 +1,43 @@
+<div class="modal-content userform bg10" data-ng-hide="uid">
+<div class="modal-header ng-scope">
+	<button type="button" class="btn default close pull-right" data-ng-click="cancel()"><span class="glyphicon glyphicon-remove"></span></button>
+	<h3>Prihlásenie</h3>
+</div>	
+	<div class="modal-body form-horizontal" role="form">
+		<div class="form-group">
+			<label for="usr" class="col-sm-2 control-label">Používateľ</label>
+			<div class="col-sm-9">
+				<input type="text" data-ng-model="data.usr" data-ng-maxlength="32" class="form-control" placeholder="Zadajte Vaše používateľské meno/email">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="pwd" class="col-sm-2 control-label">Heslo</label>
+			<div class="col-sm-9">
+				<input type="password" data-ng-model="data.pwd" data-ng-maxlength="32" class="form-control" placeholder="Zadajte Vaše prístupové heslo">
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary pull-left" data-ng-click="cancel()">Návrat</button>
+		<button class="btn btn-success" data-ng-click="ok()">Prihlásiť sa do eshop-u</button>		
+	</div>
+</div>
+
+<div class="modal-content userform bg10" data-ng-show="uid">
+<div class="modal-header ng-scope">
+	<button type="button" class="btn default close pull-right" data-ng-click="cancel()"><span class="glyphicon glyphicon-remove"></span></button>
+	<h3>Odhlásenie</h3>
+</div>	
+	<div class="modal-body form-horizontal" role="form">
+		<div class="form-group">
+			<label for="usr" class="col-sm-2 control-label">Používateľ</label>
+			<div class="col-sm-9">
+				<input type="text" data-ng-model="username" class="form-control" disabled >
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary pull-left" data-ng-click="cancel()">Návrat</button>
+		<button class="btn btn-success" data-ng-click="ok()">Odhlásiť sa z eshop-u</button>		
+	</div>
+</div>

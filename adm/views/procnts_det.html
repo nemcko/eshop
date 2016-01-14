@@ -1,0 +1,32 @@
+<div class="modal-header">
+	<button type="button" class="close" data-ng-click="cancel()">&times;</button>
+	<h2>Alias produktu</h2>	
+</div>
+<div class="modal-body">
+	<div role="form">
+		<div class="form-group">
+			<label>Jazyk</label>
+			<div data-ng-class="{'has-error': errorLng}" > 
+					<select id="txtLng" class="form-control" data-ng-model="data.lng" data-ng-options="o for o in lngs"  tooltip="Jazyk načítaných údajov"></select>
+			</div>
+		</div>				
+
+		<div class="form-group">
+			<label>Kontext fulltext vyhľadávania</label>
+			<div data-ng-class="{'has-error': errorCnt}" >
+				<textarea id="txtCnt" class="form-control" rows="10" cols="50" data-ng-model="data.cntlng" /></textarea>
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Bez diakritiky</label>
+			<div data-ng-class="{'has-error': errorCnt}" >
+				<textarea id="txtCntAscii" class="form-control" rows="5" cols="50" data-ng-model="data.cnt" /></textarea>
+			</div>
+		</div>		
+				
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" data-ng-click="ok()">OK</button>
+	<button class="btn btn-warning" data-ng-click="cancel()">Cancel</button>
+</div>

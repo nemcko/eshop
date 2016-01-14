@@ -1,0 +1,31 @@
+<div class="modal-header">
+	<button type="button" class="close" data-ng-click="cancel()">&times;</button>
+	<h2>Dodávateľ <small>detail</small></h2>	
+</div>
+<div class="modal-body">
+	<div class="form-horizontal" role="form">
+		<div class="form-group">
+			<label class="control-label col-md-2">Kód</label>
+			<div class="col-md-5">
+				<input type="text" class="form-control" data-ng-model="data.idsupplier"   tooltip="Kód dodávateľa" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2">Prefix</label>
+			<div class="col-md-2">
+				<input type="text" class="form-control" data-ng-model="data.prefix"   tooltip-placement="right" tooltip="Prefix kódov produktov" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2">Assembly</label>
+			<div class="col-md-4">
+				<select class="form-control" data-ng-model="data.assembly" data-ng-options="o for o in assemblies"  tooltip-placement="right" tooltip="Kód programu pre načítanie"></select>
+			</div>
+		</div>				
+				
+	</div>        	
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" data-ng-click="ok()">OK</button>
+	<button class="btn btn-warning" data-ng-click="cancel()">Cancel</button>
+</div>

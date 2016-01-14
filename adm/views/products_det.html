@@ -1,0 +1,145 @@
+<div class="modal-header">
+	<button type="button" class="close" data-ng-click="cancel()">&times;</button>
+	<h2>Produkt <small>detail</small></h2>	
+</div>
+<div class="modal-body">
+	<tabset>
+	    <tab heading="Základne údaje">
+			<div class="form-horizontal" role="form">
+				<br/>
+				<div class="form-group">
+					<label class="control-label col-md-2">Kód</label>
+					<div class="col-md-5">
+						<div class="input-group">
+							<input id="txtIdpro" type="text" class="form-control" data-ng-model="data.idpro"   tooltip="Kód produktu" />
+							<a href="javascript:void(0)"  data-ng-click="newIdpro()" class="input-group-addon"><span class="glyphicon glyphicon-hand-left"></span></a>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="btn-group col-md-offset-2 col-md-6">
+				        <button type="button" class="btn btn-primary btn-sm" data-ng-model="data.act" btn-radio="'1'">Zobraziť v eshope</button>
+				        <button type="button" class="btn btn-primary btn-sm" data-ng-model="data.act" btn-radio="'0'">Nezobraziť</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-2">Dod</label>
+					<div data-ng-class="{'col-md-8 has-error': errorUnit,'col-md-8':!errorUnit}">
+						<div class="input-group col-md-4">
+							<select id="txtUnit" class="form-control" data-ng-model="data.idsupplier" data-ng-options="o for o in suppliers"  tooltip-placement="right" tooltip="Kód dodávateľa"></select>
+						</div>				
+					</div>
+				</div>				
+				<div class="form-group">
+					<label class="control-label col-md-2">MJ</label>
+					<div data-ng-class="{'col-md-8 has-error': errorUnit,'col-md-8':!errorUnit}">
+						<div class="input-group col-md-4">
+							<select id="txtUnit" class="form-control" data-ng-model="data.unit" data-ng-options="o for o in units"  tooltip-placement="right" tooltip="Merná jednotka pre produkt"></select>
+						</div>				
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-2">%DPH</label>
+					<div data-ng-class="{'col-md-8 has-error': errorTaxper,'col-md-8':!errorTaxper}">
+						<div class="input-group col-md-4">
+							<select id="txtTaxper" class="form-control" data-ng-model="data.taxper" data-ng-options="o for o in taxpers"  tooltip-placement="right" tooltip="Sadzba DPH"></select>
+						</div>				
+					</div>
+				</div>		
+				<div class="form-group">
+					<label class="control-label col-md-2">Zár.</label>
+					<div data-ng-class="{'col-md-8 has-error': errorWarranty,'col-md-8':!errorWarranty}">
+						<div class="input-group col-md-4">
+							<select id="txtWarranty" class="form-control" data-ng-model="data.warranty" data-ng-options="o for o in warrantys"  tooltip-placement="right" tooltip="Záruka"></select>
+						</div>				
+					</div>
+				</div>		
+						
+			</div>        
+	    </tab>
+	    <tab heading="Sk">
+	    	<div role="form">
+	    		<br/>
+				<div class="form-group">
+					<label>Názov</label>
+					<input type="text" class="form-control" data-ng-model="data.name_sk" />
+				</div>
+				<div class="form-group">
+					<label>Popis</label>
+					<textarea rows="10" cols="50" class="form-control" data-ng-model="data.desc_sk" /></textarea>
+				</div>	 
+			</div>   				    	    
+	    </tab>	    
+	    <tab heading="En">
+		    <div role="form">
+		    	<br/> 
+				<div class="form-group">
+					<label>Name</label>
+					<input type="text" class="form-control" data-ng-model="data.name_en" />
+				</div>
+				<div class="form-group">
+					<label>Description</label>
+					<textarea rows="10" cols="50" class="form-control" data-ng-model="data.desc_en" /></textarea>
+				</div>	    				    
+		    </div>
+	    </tab>
+	    <tab heading="Cz">
+	    	<div role="form">
+		    	<br/> 
+				<div class="form-group">
+					<label>Název</label>
+					<input type="text" class="form-control" data-ng-model="data.name_cz" />
+				</div>
+				<div class="form-group">
+					<label>Popis</label>
+					<textarea rows="10" cols="50" class="form-control" data-ng-model="data.desc_cz" /></textarea>
+				</div>
+			</div>				    				    	   
+	    </tab>
+	    <tab heading="De">
+	    	<div role="form">
+		    	<br/> 
+				<div class="form-group">
+					<label>Name</label>
+					<input type="text" class="form-control" data-ng-model="data.name_de" />
+				</div>
+				<div class="form-group">
+					<label>Beschreibung</label>
+					<textarea rows="10" cols="50" class="form-control" data-ng-model="data.desc_de" /></textarea>
+				</div>
+			</div>	    	
+		</tab>			    	    
+	    <tab heading="Pl">
+	    	<div role="form">
+		    	<br/> 
+				<div class="form-group">
+					<label>Nazwa</label>
+					<input type="text" class="form-control" data-ng-model="data.name_pl" />
+				</div>
+				<div class="form-group">
+					<label>Opis</label>
+					<textarea rows="10" cols="50" class="form-control" data-ng-model="data.desc_pl" /></textarea>
+				</div>
+			</div>	    				    	    
+	    </tab>
+	    <tab heading="Hu">
+	    	<div role="form">
+		    	<br/> 
+				<div class="form-group">
+					<label>Név</label>
+					<input type="text" class="form-control" data-ng-model="data.name_hu" />
+				</div>
+				<div class="form-group">
+					<label>Leírás</label>
+					<textarea rows="10" cols="50" class="form-control" data-ng-model="data.desc_hu" /></textarea>
+				</div>
+			</div>	    				    	    
+	    </tab>
+	</tabset>
+
+	
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" data-ng-click="ok()">OK</button>
+	<button class="btn btn-warning" data-ng-click="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,123 @@
+<div class="modal-header">
+	<button type="button" class="close" data-ng-click="cancel()">&times;</button>
+	<h2>Načasovanie úlohy</h2>	
+</div>
+<div class="modal-body">
+	<div class="form-horizontal" role="form">
+		<div class="form-group">
+			<label class="control-label col-md-2"></label>
+			<div class="col-md-9"> 
+				<div class="input-group col-md-3 pull-left">
+					<label for="txtRundate" class="control-label">Dátum</label>
+	    			<input type="text" id="txtRundate" class="form-control" datepicker-popup="dd.MM.yyyy" data-date-format="yyyy-mm-dd" data-ng-model="data.rundate" is-open="opened" show-weeks="false" datepicker-options="dateOptions" tooltip="Dátum načítania údajov"/>
+				</div>
+
+				<div class="input-group col-md-3 pull-left"> 
+					<label for="txtRuntimeh" class="control-label">Hodina</label>
+ 					<select id="txtRuntimeh" class="form-control" data-ng-model="runtimehour" data-ng-options="o for o in runtimehours" tooltip="Hodina načítania údajov"></select>
+ 				</div>
+
+ 				<div class="input-group col-md-3 pull-left">
+ 					<label for="txtRuntimemin" class="control-label" >Minúta</label>
+					<select id="txtRuntimemin" class="form-control" data-ng-model="runtimemin" data-ng-options="o for o in runtimemins"  tooltip="Minúta načítania údajov"></select>
+				</div>
+
+				<div class="input-group col-md-3 pull-left">
+					<label for="txtRunperiod" class="control-label">Perióda</label>
+					<select id="txtRunperiod" class="form-control" data-ng-model="data.runperiod" data-ng-options="o for o in runperiods"  tooltip="Perióda načítavania údajov"></select>
+				</div>
+				
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2"></label>
+			<div class="col-md-8">
+				<div class="btn-group">
+			        <button type="button" class="btn btn-primary btn-sm" data-ng-model="data.act" btn-radio="'1'">Úloha je aktívna</button>
+			        <button type="button" class="btn btn-primary btn-sm" data-ng-model="data.act" btn-radio="'0'">Úloha nie je aktívna</button>
+		        </div>
+			</div>
+		</div>
+		<hr/>
+		<div class="form-group">
+			<label class="control-label col-md-2">URL</label>
+			<div data-ng-class="{'col-md-9 has-error': errorURL,'col-md-9':!errorURL}">
+				<input id="txtURL" type="text" class="form-control" data-ng-model="data.url"  tooltip="Adresa webstránky kategórie produktov"/>
+			</div>
+		</div>		
+		<div class="form-group">
+			<label class="control-label col-md-2">KD</label>
+			<div data-ng-class="{'col-md-8 has-error': errorAssembly,'col-md-8':!errorAssembly}">
+				<div class="input-group col-md-4">
+					<select id="txtAssembly" class="form-control" data-ng-model="data.idsupplier" data-ng-options="o for o in suppliers"  tooltip-placement="right" tooltip="Kód dodávateľa"></select>
+				</div>				
+			</div>
+		</div>		
+		<div class="form-group">
+			<label class="control-label col-md-2">Jazyk</label>
+			<div data-ng-class="{'col-md-8 has-error': errorLng,'col-md-8':!errorLng}">
+				<div class="input-group col-md-4">
+					<select id="txtLng" class="form-control" data-ng-model="data.lng" data-ng-options="o for o in runlngs"  tooltip-placement="right" tooltip="Jazyk načítaných údajov"></select>
+				</div>				
+			</div>
+		</div>		
+		<div class="form-group">
+			<label class="control-label col-md-2">Limit</label>
+			<div class="col-md-4">
+				<input type="text" class="form-control" data-ng-model="data.loadlimit"  tooltip-placement="right" tooltip="Kontrolný počet načítaných produktov"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2"></label>
+			<div class="col-md-9">
+						
+				<div class="input-group col-md-3 pull-left" tooltip="Vymazanie adresára so stiahnutými údajmi celého webu">
+					<label class="control-label">DelWeb</label>
+					<div class="btn-group">
+				        <button type="button" class="btn btn-primary btn-sm" data-ng-model="data.delweb" btn-radio="'1'">Áno</button>
+				        <button type="button" class="btn btn-primary btn-sm" data-ng-model="data.delweb" btn-radio="'0'">Nie</button>
+			        </div>
+				</div>
+
+				<div class="input-group col-md-3 pull-left" tooltip="Vymazanie adresára so stiahnutými údajmi kategórie">
+					<label class="control-label">DelCat</label>
+					<div class="btn-group">
+				        <button type="button" class="btn btn-primary btn-sm" data-ng-model="data.delcat" btn-radio="'1'">Áno</button>
+				        <button type="button" class="btn btn-primary btn-sm" data-ng-model="data.delcat" btn-radio="'0'">Nie</button>
+			        </div>
+				</div>
+
+				<div class="input-group col-md-3 pull-left" tooltip="Vymazanie adresára so stiahnutými údajmi obrázkov">
+					<label class="control-label">DelImg</label>
+					<div class="btn-group">
+				        <button type="button" class="btn btn-primary btn-sm" data-ng-model="data.delimg" btn-radio="'1'">Áno</button>
+				        <button type="button" class="btn btn-primary btn-sm" data-ng-model="data.delimg" btn-radio="'0'">Nie</button>
+			        </div>
+				</div>
+
+				<div class="input-group col-md-3 pull-left" tooltip="Načítať údaje bez obrázkov">
+					<label class="control-label">NoImg</label>
+					<div class="btn-group">
+				        <button type="button" class="btn btn-primary btn-sm" data-ng-model="data.noimg" btn-radio="'1'">Áno</button>
+				        <button type="button" class="btn btn-primary btn-sm" data-ng-model="data.noimg" btn-radio="'0'">Nie</button>
+			        </div>
+				</div>
+
+				<div class="input-group col-md-3 pull-left" tooltip="Nahrať stiahnuté údaje do eshopu">
+					<label class="control-label">Upload</label>
+					<div class="btn-group">
+				        <button type="button" class="btn btn-primary btn-sm" data-ng-model="data.upload" btn-radio="'1'">Áno</button>
+				        <button type="button" class="btn btn-primary btn-sm" data-ng-model="data.upload" btn-radio="'0'">Nie</button>
+			        </div>
+				</div>
+
+			</div>
+		</div>
+	
+		
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" data-ng-click="ok()">OK</button>
+	<button class="btn btn-warning" data-ng-click="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<title>Ajto.sk</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">  
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/animations.css">
+<link rel="stylesheet" type="text/css" href="fonts/flaticon.css"> 
+
+<!-- 
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+-->
+<link href='http://fonts.googleapis.com/css?family=Cutive+Mono&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Italianno&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body data-ng-controller="RootCtrl">
+	<header>
+		<nav class="navbar navbar-default navbar-fixed-top navbar-inverse"
+			role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div id="btnBasket" class="navbar-toggle basketbtn" data-ng-click="ShowBasket(true)" data-toggle="collapse">	
+						<span class="glyphicon glyphicon-shopping-cart"></span>
+					</div>
+
+					<div class="navbar-toggle" data-toggle="collapse">
+						<span class="glyphicon glyphicon-align-justify"></span>
+					</div>
+
+					<div class="navbar-toggle" data-toggle="collapse">
+						<span class="glyphicon glyphicon-flag"></span>
+					</div>
+
+					<div class="navbar-toggle" data-toggle="collapse">
+						<i class="flaticon-moneybag"></i>
+					</div>
+
+					<div class="navbar-toggle" data-toggle="collapse">
+						<i class="flaticon-packaging"></i>
+					</div>
+
+					<div class="navbar-toggle" data-toggle="collapse">
+						<i class="flaticon-staff2"></i>
+					</div>
+
+					<div id="btnLadies" class="navbar-toggle" data-toggle="collapse">
+						<i class="flaticon-female91"></i>
+						<div class="menupageright">
+							<div class="box2">
+							<div submenu="ladies-accessories" data="menus" boxsize="12"></div>
+							</div>
+						</div>
+					</div>
+
+					<div id="btnMens" class="navbar-toggle" data-toggle="collapse">
+						<i class="flaticon-punk"></i>
+						<div class="menupageleft">							
+							<div submenu="mens-trainers" data="menus" boxsize="2"></div>
+							<div submenu="mens-shoes" data="menus" boxsize="2"></div>
+							<div submenu="mens-accessories" data="menus" boxsize="8"></div>
+							<div submenu="mens-boots" data="menus" boxsize="2"></div>
+							<div submenu="mens-outlet" data="menus" boxsize="2"></div>
+						</div>
+					</div>
+
+					<a class="navbar-brand" href="#/"><img class="" src="./images/logo.png" alt="logo" /></a>
+				</div>
+
+				<div class="collapse navbar-collapse navbar-left" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li id="a1"><a href="javascript:void(0)">Muži</a>
+						
+						<div class="menupageleft">							
+							<div submenu="mens-trainers" data="menus" boxsize="2"></div>
+							<div submenu="mens-shoes" data="menus" boxsize="2"></div>
+							<div submenu="mens-accessories" data="menus" boxsize="8"></div>
+							<div submenu="mens-boots" data="menus" boxsize="2"></div>
+							<div submenu="mens-outlet" data="menus" boxsize="2"></div>
+						</div>
+
+						</li>
+						<li id="a2"><a href="javascript:void(0)">Ženy</a>
+						<div class="menupageright">
+							<div class="box2">
+							<div submenu="ladies-accessories" data="menus" boxsize="12"></div>
+							</div>
+						</div>
+						
+						</li>
+						<li id="a3"><a href="javascript:void(0)">Deti</a>
+ <div class="menupageleft">
+			<h2>Sortiment pre deti</h2>
+					<ul>
+								<li class="level2"><a
+									href="http://sk.sportsdirect.com/mens/mens-golf-shoes">Golfové
+										topánky</a></li>
+								<li class="level2"><a
+									href="http://sk.sportsdirect.com/mens/mens-hi-tops">Hi Topy</a></li>
+								<li class="level2"><a
+									href="http://sk.sportsdirect.com/mens/mens-indoor-and-court-trainers">Halové
+										a kurtové tenisky</a></li>
+							</ul>
+  </div>												
+						</li>
+						<li id="a4"><a href="javascript:void(0)">Doplnky</a>
+ <div class="menupageright">
+			<h2>Doplnky</h2>
+					<ul>
+								<li class="level2"><a
+									href="http://sk.sportsdirect.com/mens/mens-golf-shoes">Golfové
+										topánky</a></li>
+								<li class="level2"><a
+									href="http://sk.sportsdirect.com/mens/mens-hi-tops">Hi Topy</a></li>
+								<li class="level2"><a
+									href="http://sk.sportsdirect.com/mens/mens-indoor-and-court-trainers">Halové
+										a kurtové tenisky</a></li>
+							</ul>
+  </div>												
+						
+						</li>
+						<li id="a5"><a href="javascript:void(0)">Značky</a>
+ <div class="menupageleft">
+			<h2>Obchodné značky</h2>
+					<ul>
+								<li class="level2"><a
+									href="http://sk.sportsdirect.com/mens/mens-golf-shoes">Golfové
+										topánky</a></li>
+								<li class="level2"><a
+									href="http://sk.sportsdirect.com/mens/mens-hi-tops">Hi Topy</a></li>
+								<li class="level2"><a
+									href="http://sk.sportsdirect.com/mens/mens-indoor-and-court-trainers">Halové
+										a kurtové tenisky</a></li>
+							</ul>
+  </div>												
+						
+						
+						
+						</li>
+						<li class="dropdown"><a href="javascript:void(0)" class="dropdown-toggle"
+							data-toggle="dropdown">Zľavy <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="javascript:void(0)">zľavy nad 70%</a></li>
+								<li><a href="javascript:void(0)">zľavy 50-70%</a></li>
+								<li><a href="javascript:void(0)">zľavy 30-50%</a></li>
+								<li><a href="javascript:void(0)">zľavy 10-30%</a></li>
+								<li><a href="javascript:void(0)">zľavy do 10%</a></li>
+							</ul></li>					
+								
+					</ul>
+				</div>
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-2">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="javascript:void(0)" class="dropdown-toggle btn" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="javascript:void(0)" data-ng-click="LogIn()">
+									<span data-ng-hide="clientData.uid">Prihlásiť sa</span>
+									<span data-ng-show="clientData.uid">Odhlásiť sa</span>
+								</a></li>
+								<li><a href="javascript:void(0)" data-ng-click="NewReg()">Nová registrácia</a></li>
+								<li data-ng-hide="clientData.uid"><a href="javascript:void(0)" data-ng-click="NewPwd()">Zabudnuté heslo</a></li>
+								<li  data-ng-show="clientData.uid" class="divider"></li>
+								<li data-ng-show="clientData.uid"><a href="#/reg">Moje údaje</a></li>
+								<li data-ng-show="clientData.uid"><a href="javascript:void(0)">Moje objednávky</a></li>
+								<li data-ng-show="clientData.uid"><a href="javascript:void(0)">Moje hodnotenia</a></li>
+								<li data-ng-show="clientData.uid"><a href="javascript:void(0)">Moje priania</a></li>
+							</ul></li>					
+						<li class="dropdown">
+							<a href="javascript:void(0)" class="dropdown-toggle btn" data-toggle="dropdown"><i class="glyphicon glyphicon-eye-open"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="javascript:void(0)">Ako nakupovať</a></li>
+								<li><a href="javascript:void(0)">Obchodné podmienky</a></li>
+								<li><a href="javascript:void(0)">Reklamačný poriadok</a></li>
+								<li><a href="javascript:void(0)">Kontakt</a></li>
+							</ul>
+						</li>
+						<li id="menuBasket"><a href="javascript:void(0)" class="basketbtn"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+							<div id="BasketMenu" data-ng-class="showBasket" class="basketmenu">								
+								<h2 class="baskettitle bg00" data-ng-click="ToggleBasket()"><span class="glyphicon glyphicon-shopping-cart pull-right"></span> Nákupný košík</h2>
+								<div class="basketwrapper">
+									<div class="basketmenuitems">
+										<table>
+											<tr data-ng-repeat="item in basket.items">
+												<td><img class="" src="api/service/image.php?img={{item.smallimg}}" /></td>
+												<td>
+													<a href="javascript:void(0)" data-ng-click="ShowDetail({idpro: item.idpro, sku: item.sku})"><small>{{item.name}}</small>
+													({{item.sizename}})
+													<b>{{item.szprice}}€</b>
+													</a>
+												</td>
+												<td>
+													<input type="number" min="1" max="1000" class="pull-left text-center" data-ng-model="item.quantity" data-ng-blur="UpdBasketItem(item.id, item.quantity)" />
+												</td>
+												<td>
+												<span data-ng-click="DelBasketItem(item.id)" class="glyphicon glyphicon-trash pull-right"></span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<div class="basket-panel">
+										<div class="basket-sum-block bg02">
+											<div class="basket-sum">
+												<span class="">Cena bez DPH</span>
+												<span class="">{{basket.szExcVAT}}€</span>
+											</div>
+											<div class="basket-sum">
+												<big>
+												<span class="">Cena s DPH</span>
+												<span class="">{{basket.szIncVAT}}€</span>
+												</big>
+											</div>
+										</div>
+										<div class="basket-btn-block">
+											<button type="button" class="btn btn-primary" data-ng-disabled="!basket.itmcnt"  data-ng-click="NewOrder()"><span class="glyphicon glyphicon-ok"></span> Nová objednávka</button>&nbsp;
+											<button type="button" class="btn btn-success" data-ng-click="ClearBasket()"><span class="glyphicon glyphicon-trash"></span></button>
+											<button type="button" data-ng-show="showBasket"class="btn btn-success" data-ng-click="ShowBasket(false)"><span class="glyphicon glyphicon-remove"></span></button>
+										</div>
+								</div>
+								<button type="button" data-ng-show="showBasket"class="btn btn-success close" data-ng-click="ShowBasket(false)"><span class="glyphicon glyphicon-remove"></span></button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	
+<div ui-view></div>
+
+<script data-main="js/main" src="js/lib/jquery/require.js"></script>		
+</html>

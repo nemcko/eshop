@@ -1,0 +1,24 @@
+<div class="modal-header">
+	<button type="button" class="close" data-ng-click="cancel()">&times;</button>
+	<h2>Príplatok <small>pre {{subtitle}}</small> </h2>	
+</div>
+<div class="modal-body">
+	<div class="form-horizontal" role="form">
+		<div class="form-group">
+			<label class="control-label col-md-2">Poradie</label>
+			<div class="col-md-4">
+				<input type="text" class="form-control" data-ng-model="data.seq" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2">Príplatok</label>
+			<div class="col-md-4">
+				<input type="text" class="form-control" data-ng-model="data.payprice" />
+			</div>
+		</div>						
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" data-ng-click="ok()">OK</button>
+	<button class="btn btn-warning" data-ng-click="cancel()">Cancel</button>
+</div>

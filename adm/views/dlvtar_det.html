@@ -1,0 +1,62 @@
+<div class="modal-header">
+	<button type="button" class="close" data-ng-click="cancel()">&times;</button>
+	<h2>Cena prepravy</h2>	
+</div>
+<div class="modal-body">
+	<div class="form-horizontal" role="form">
+		<div class="form-group">
+			<label class="control-label col-md-3">Krajina</label>
+			<div class="col-md-4">
+				<div class="form-control dropdown-toggle" data-toggle="dropdown">
+					<span >{{data.country}}</span>&nbsp;								
+					<span class="glyphicon glyphicon-chevron-down pull-right"></span>
+				</div>
+				<ul class="dropdown-menu col-sm-12" role="menu">
+					<li data-ng-repeat="o in countries">
+						<button class="btn-link" data-ng-click="data.country=o">{{o}}</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-3">Hmotnosť</label>
+			<div class="col-md-4">
+				<div class="form-control dropdown-toggle" data-toggle="dropdown">
+					<span >{{data.idwei}}</span>&nbsp;								
+					<span class="glyphicon glyphicon-chevron-down pull-right"></span>
+				</div>
+				<ul class="dropdown-menu col-sm-12" role="menu">
+					<li data-ng-repeat="o in weights">
+						<button class="btn-link" data-ng-click="data.idwei=o">{{o}}</button>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-3">Hodnota</label>
+			<div class="col-md-4">
+				<div class="form-control dropdown-toggle" data-toggle="dropdown">
+					<span >{{data.idpri}}</span>&nbsp;								
+					<span class="glyphicon glyphicon-chevron-down pull-right"></span>
+				</div>
+				<ul class="dropdown-menu col-sm-12" role="menu">
+					<li data-ng-repeat="o in prices">
+						<button class="btn-link" data-ng-click="data.idpri=o">{{o}}</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-md-3">Cena</label>
+			<div class="col-md-4">
+				<input type="text" class="form-control" data-ng-model="data.price" />
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" data-ng-click="ok()">OK</button>
+	<button class="btn btn-warning" data-ng-click="cancel()">Cancel</button>
+</div>

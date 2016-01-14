@@ -1,0 +1,76 @@
+<div class="modal-header">
+	<button type="button" class="close" data-ng-click="cancel()">&times;</button>
+	<h2>Variant <small>produktu {{data.idpro}}</small></h2>	
+</div>
+<div class="modal-body">
+	<div class="form-horizontal" role="form">
+		<div class="form-group">
+			<label class="control-label col-md-3">SKU</label>
+			<div class="col-md-8">
+				<input id="txtURL" type="text" class="form-control" data-ng-model="data.sku"  tooltip-placement="right" tooltip="Hodnota vlastnosti produktu"/>
+			</div>
+		</div>		
+	
+		<div class="form-group">
+			<label class="control-label col-md-3">1.kombinácia</label>
+			<div class="col-md-9"> 
+				<div class="input-group col-md-4 pull-left"> 
+ 					<select id="txtRuntimeh" class="form-control" data-ng-change="loadVals('proattrvals1')" data-ng-model="data.idattr1" data-ng-options="a for a in proattrs" ></select>
+ 				</div>
+				<div class="input-group col-md-4 pull-left"> 
+ 					<select id="txtRuntimeh" class="form-control" data-ng-model="data.idattrval1" data-ng-options="a for a in proattrvals1" ></select>
+ 				</div>
+			</div>
+		</div>	
+		<div class="form-group">
+			<label class="control-label col-md-3">2.kombinácia</label>
+			<div class="col-md-9"> 
+				<div class="input-group col-md-4 pull-left"> 
+ 					<select id="txtRuntimeh" class="form-control" data-ng-change="loadVals('proattrvals2')" data-ng-model="data.idattr2" data-ng-options="a for a in proattrs" ></select>
+ 				</div>
+				<div class="input-group col-md-4 pull-left"> 
+ 					<select id="txtRuntimeh" class="form-control" data-ng-model="data.idattrval2" data-ng-options="a for a in proattrvals2" ></select>
+ 				</div>
+			</div>
+		</div>	
+		<div class="form-group">
+			<label class="control-label col-md-3">3.kombinácia</label>
+			<div class="col-md-9"> 
+				<div class="input-group col-md-4 pull-left"> 
+ 					<select id="txtRuntimeh" class="form-control" data-ng-change="loadVals('proattrvals3')" data-ng-model="data.idattr3" data-ng-options="a for a in proattrs" ></select>
+ 				</div>
+				<div class="input-group col-md-4 pull-left"> 
+ 					<select id="txtRuntimeh" class="form-control" data-ng-model="data.idattrval3" data-ng-options="a for a in proattrvals3" ></select>
+ 				</div>
+			</div>			
+		</div>	
+
+		<div class="form-group">
+			<label class="control-label col-md-3">Na sklade</label>
+			<div class="col-md-3">
+				<input type="text" class="form-control" data-ng-model="data.quantity" />
+			</div>
+		</div>	
+	
+		<div class="form-group">
+			<label class="control-label col-md-3">Cena <small>(pôvodná)</small></label>
+			<div class="col-md-3">
+				<input type="text" class="form-control" data-ng-model="data.oprice" required />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-3">Cena <small>(nová)</small></label>
+			<div class="col-md-3">
+				<input type="text" class="form-control" data-ng-model="data.price" required />
+			</div>
+		</div>
+
+
+
+	</div>
+
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" data-ng-click="ok()">OK</button>
+	<button class="btn btn-warning" data-ng-click="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,69 @@
+<div class="modal-header">
+	<button type="button" class="close" data-ng-click="cancel()">&times;</button>
+	<h2>Preprava</h2>	
+</div>
+<div class="modal-body">
+	<div class="form-horizontal" role="form">
+		<div class="form-group">
+			<label class="control-label col-md-3">Kód</label>
+			<div class="col-md-5">
+				<div class="input-group">
+					<input type="text" class="form-control" data-ng-model="data.iddeliver" />
+				
+<!-- 				
+					<input id="txtIdcat" type="text" class="form-control" data-ng-model="data.iddeliver" />
+					<a href="javascript:void(0)"  data-ng-click="newId()" class="input-group-addon"><span class="glyphicon glyphicon-hand-left"></span></a>
+-->					
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-3">Názov(SK)</label>
+			<div class="col-md-8">
+				<input type="text" class="form-control" data-ng-model="data.name_sk" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-3">Názov(EN)</label>
+			<div class="col-md-8">
+				<input type="text" class="form-control" data-ng-model="data.name_en" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-3">Názov(CZ)</label>
+			<div class="col-md-8">
+				<input type="text" class="form-control" data-ng-model="data.name_cz" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-3">Názov(DE)</label>
+			<div class="col-md-8">
+				<input type="text" class="form-control" data-ng-model="data.name_de" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-3">Názov(PL)</label>
+			<div class="col-md-8">
+				<input type="text" class="form-control" data-ng-model="data.name_pl" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-3">Názov(HU)</label>
+			<div class="col-md-8">
+				<input type="text" class="form-control" data-ng-model="data.name_hu" />
+			</div>
+		</div>
+	
+		<div class="form-group">
+			<div class="btn-group col-md-offset-3 col-md-4">
+		        <button type="button" class="btn btn-primary btn-sm" data-ng-model="data.act" btn-radio="'1'">Aktuálna</button>
+		        <button type="button" class="btn btn-primary btn-sm" data-ng-model="data.act" btn-radio="'0'">Neaktuálna</button>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" data-ng-click="ok()">OK</button>
+	<button class="btn btn-warning" data-ng-click="cancel()">Cancel</button>
+</div>

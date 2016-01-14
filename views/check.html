@@ -1,0 +1,257 @@
+<div data-ng-controller="OrderCtrl" class="container-fluid">
+	<div class="container list-group">
+		<li class="list-group-item userform bg00">
+			<h1>Objednávka <small>kontrola</small></h1>
+		</li>
+		<li class="list-group-item userform bg08">
+			<div class="">
+				<h2>Fakturačná adresa</h2>
+				<div>
+					<div class="form-horizontal">
+						<div class="form-group-static" data-ng-show="userdata.title">
+							<label class="col-sm-2 control-label">Titul :</label>
+							<div class="col-sm-2">
+								<p class="form-control-static">{{userdata.title}}</p>
+							</div>
+						</div>
+						<div class="form-group-static" data-ng-show="userdata.name">
+							<label class="col-sm-2 control-label">Meno :</label>
+							<div class="col-sm-8">
+								<p class="form-control-static">{{userdata.name}}</p>
+							</div>
+						</div>
+						<div class="form-group-static" data-ng-show="userdata.surname">
+							<label class="col-sm-2 control-label">Priezvisko :</label>
+							<div class="col-sm-8">
+								<p class="form-control-static">{{userdata.surname}}</p>
+							</div>
+						</div>
+						<div class="form-group-static" data-ng-show="userdata.company">
+							<label class="col-sm-2 control-label">Firma :</label>
+							<div class="col-sm-8">
+								<p class="form-control-static">{{userdata.company}}</p>
+							</div>
+						</div>
+						<div class="form-group-static" data-ng-show="userdata.ico">
+							<label class="col-sm-2 control-label">IČO :</label>
+							<div class="col-sm-4">
+								<p class="form-control-static">{{userdata.ico}}</p>
+							</div>
+						</div>
+						<div class="form-group-static" data-ng-show="userdata.dic">
+							<label class="col-sm-2 control-label">DIČ :</label>
+							<div class="col-sm-4">
+								<p class="form-control-static">{{userdata.dic}}</p>
+							</div>
+						</div>
+						<div class="form-group-static" data-ng-show="userdata.icdph">
+							<label class="col-sm-2 control-label">IČ DPH :</label>
+							<div class="col-sm-4">
+								<p class="form-control-static">{{userdata.icdph}}</p>
+							</div>
+						</div>
+						<div class="form-group-static" data-ng-show="userdata.phone">
+							<label class="col-sm-2 control-label">Telefón :</label>
+							<div class="col-sm-4">
+								<p class="form-control-static">{{userdata.phone}}</p>
+							</div>
+						</div>
+						<div class="form-group-static" data-ng-show="userdata.mobil">
+							<label class="col-sm-2 control-label">Mobil :</label>
+							<div class="col-sm-4">
+								<p class="form-control-static">{{userdata.mobil}}</p>
+							</div>
+						</div>
+						<div class="form-group-static" data-ng-show="userdata.street">
+							<label class="col-sm-2 control-label">Ulica :</label>
+							<div class="col-sm-8">
+								<p class="form-control-static">{{userdata.street}}</p>
+							</div>
+						</div>
+						<div class="form-group-static" data-ng-show="userdata.zip">
+							<label class="col-sm-2 control-label">PSČ :</label>
+							<div class="col-sm-2">
+								<p class="form-control-static">{{userdata.zip}}</p>
+							</div>
+						</div>
+						<div class="form-group-static" data-ng-show="userdata.city">
+							<label class="col-sm-2 control-label">Obec :</label>
+							<div class="col-sm-8">
+								<p class="form-control-static">{{userdata.city}}</p>
+							</div>
+						</div>
+						<div class="form-group-static" data-ng-show="userdata.country">
+							<label class="col-sm-2 control-label">Štát :</label>
+							<div class="col-sm-4">
+								<p class="form-control-static">{{userdata.country}}</p>
+							</div>
+						</div>
+						<br />
+					</div>
+				</div>
+			</div>
+			<div class="" data-ng-show="userdata.dtitle||userdata.dname||userdata.dsurname||userdata.dcompany||userdata.dphone||userdata.dmobil||userdata.dstreet||userdata.dzip||userdata.dcity||userdata.dcountry">
+				<h2>Dodacia adresa</h2>
+				<div class="form-horizontal" role="form">
+					<div class="form-group-static" data-ng-show="userdata.dtitle">
+						<label class="col-sm-2 control-label">Titul :</label>
+						<div class="col-sm-2">
+							<p class="form-control-static">{{userdata.dtitle}}</p>
+						</div>
+					</div>
+					<div class="form-group-static" data-ng-show="userdata.dname">
+						<label class="col-sm-2 control-label">Meno :</label>
+						<div class="col-sm-8">
+							<p class="form-control-static">{{userdata.dname}}</p>
+						</div>
+					</div>
+					<div class="form-group-static" data-ng-show="userdata.dsurname">
+						<label class="col-sm-2 control-label">Priezvisko :</label>
+						<div class="col-sm-8">
+							<p class="form-control-static">{{userdata.dsurname}}</p>
+						</div>
+					</div>
+					<div class="form-group-static" data-ng-show="userdata.dcompany">
+						<label class="col-sm-2 control-label">Firma :</label>
+						<div class="col-sm-8">
+							<p class="form-control-static">{{userdata.dcompany}}</p>
+						</div>
+					</div>
+					<div class="form-group-static" data-ng-show="userdata.dphone">
+						<label class="col-sm-2 control-label">Telefón :</label>
+						<div class="col-sm-4">
+							<p class="form-control-static">{{userdata.dphone}}</p>
+						</div>
+					</div>
+					<div class="form-group-static" data-ng-show="userdata.dmobil">
+						<label class="col-sm-2 control-label">Mobil :</label>
+						<div class="col-sm-4">
+							<p class="form-control-static">{{userdata.dmobil}}</p>
+						</div>
+					</div>
+					<div class="form-group-static" data-ng-show="userdata.dstreet">
+						<label class="col-sm-2 control-label">Ulica :</label>
+						<div class="col-sm-8">
+							<p class="form-control-static">{{userdata.dstreet}}</p>
+						</div>
+					</div>
+					<div class="form-group-static" data-ng-show="userdata.dzip">
+						<label class="col-sm-2 control-label">PSČ :</label>
+						<div class="col-sm-2">
+							<p class="form-control-static">{{userdata.dzip}}</p>
+						</div>
+					</div>
+					<div class="form-group-static" data-ng-show="userdata.dcity">
+						<label class="col-sm-2 control-label">Obec :</label>
+						<div class="col-sm-8">
+							<p class="form-control-static">{{userdata.dcity}}</p>
+						</div>
+					</div>
+					<div class="form-group-static" data-ng-show="userdata.dcountry">
+						<label class="col-sm-2 control-label">Štát :</label>
+						<div class="col-sm-4">
+							<p class="form-control-static">{{userdata.dcountry}}</p>
+						</div>
+					</div>
+					<br />
+				</div>
+			</div>
+			<div class=""> 
+				<h2>Položky objednávky</h2>
+				<table class="table">
+					<tr>
+						<th colspan="2">Názov tovaru, jeho farba a veľkosť</th>
+						<th class="text-center">Počet</th>
+						<th>%DPH</th>
+						<th class="text-right">Cena s DPH</th>
+						<th></th>
+					</tr>
+					<tr data-ng-repeat="item in basket.items">
+						<td><span loadimage="{{item.smallimg}}" cls="orditemimage"></span>
+						<td>
+							<div>{{item.name}}</div>
+							<div><small data-ng-show="item.colorname">farba: {{item.colorname}}</small><small data-ng-show="item.colorname&&item.sizename">, </small> <small data-ng-show="item.sizename"> veľkosť: {{item.sizename}}</small></div>
+							<div><small>(kód: {{item.sku}})</small></div>
+						</td>
+						<td class="col-sm-1 text-center">
+							{{item.quantity}}
+						</td>
+						<td class="col-sm-1">
+							{{item.sztaxper}}
+						</td>
+						<td class="col-sm-2 text-right">
+							{{item.szprice}}€
+						</td>
+						<td class="col-sm-1">&nbsp;</td>
+					</tr>
+				</table>
+			</div>
+			<div class="">
+				<h2>Dodanie tovaru</h2>
+				<div>
+					<div class="form-horizontal" role="form">
+						<div class="form-group-static">
+							<label class="col-sm-2 control-label">Spôsob doručenia</label>
+							<div class="col-sm-4">
+								<p class="form-control-static">{{delivery.selDlv.name}} <span ng-show="delivery.price">&nbsp;&nbsp;( {{delivery.szprice}}€ )</span></p>
+							</div>
+						</div>
+						<div class="form-group-static">
+							<label class="col-sm-2 control-label">Typ úhrady</label>
+							<div class="col-sm-4">
+								<p class="form-control-static">{{delivery.selDlvpay.name}}  <span ng-show="delivery.selDlvpay.payprice">&nbsp;&nbsp;(+{{delivery.selDlvpay.szpayprice}}€)</span></p>								
+							</div>
+						</div>
+						<br />
+					</div>
+				</div>
+			</div>
+			<div class="">
+				<table class="table noborder">
+				<tr>
+					<td class="col-sm-9 text-right">Cena tovaru bez DPH :</td>
+					<td class="col-sm-1 text-right">{{basket.szExcVAT}}€</td>
+					<td class="col-sm-1">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="col-sm-9 text-right">Cena tovaru s DPH :</td>
+					<td class="col-sm-1 text-right">{{basket.szIncVAT}}€</td>
+					<td class="col-sm-1">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="col-sm-9 text-right">Cena dodania :</td>
+					<td class="col-sm-1 text-right">{{basket.szDlvPrice}}€</td>
+					<td class="col-sm-1">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="col-sm-9 text-right">Celková cena objednávky :</td>
+					<td class="col-sm-1 text-right">{{basket.szTotalPrice}}€</td>
+					<td class="col-sm-1">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="10">
+					</td>
+				</tr>
+				</table>
+			</div>
+			<div class="container-fluid">
+				<div><small>Poznámka k objednávke:</small></div>
+				<p>
+					{{basket.comment}}
+				</p>
+			</div>
+			<br /><br />
+
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" data-ng-model="chSaleCond"> Súhlasím s obchodnými podmienkami pre tento internetový obchod 
+				</label>
+			</div>
+		</li>
+		<li collapse="showOrderSection[1]" class="list-group-item userform bg02 text-right">
+			<button class="btn btn-primary" data-ng-click="BackToOrder()">Zmena objednávky</button>
+			<button class="btn btn-success" data-ng-disabled="!chSaleCond" data-ng-click="SaveOrder()">Uzatvoriť objednávku a objednať tovar</button>
+		</li>
+		</li>
+	</div>
+</div>

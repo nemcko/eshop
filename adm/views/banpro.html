@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="pg-header">
+	<h1>Zakázané produkty <small>pre {{parentobj.idsupplier}}</small></h1>
+	</div>
+
+	<div style="width:50%;" class="pull-left">	
+		<div class="form-inline form-group col-md-12" role="form">
+			<button class="btn btn-danger" data-ng-click="DelRow()">Vymazať</button>
+			<button class="btn btn-default" data-ng-click="goToState('suppliers',false)">Dodávatelia</button>		
+			<button type="button" class="btn btn-success" data-ng-click="Refresh()"><span class="glyphicon glyphicon-refresh"></span></button>
+			
+		</div>
+		<div class="gridStyle col-md-10" data-ng-grid="gridOptions" data-ng-dblclick="DlgOpen(false);"></div>
+	</div>
+	<div style="width:50%;" class="pull-left" data-ng-controller="ProductsCtrl" >
+		<div class="form-inline form-group col-md-12" role="form">
+			<div class="form-group">
+				<input type="text" class="form-control" id="txtSearch"
+					placeholder="Vyhľadať" ng_model="filterOptions.filterText" />
+			</div>
+			<button class="btn btn-default" data-ng-click="AddCategoryItem()"><span class="glyphicon glyphicon-plus"></span></button>
+			<button type="button" class="btn btn-default" data-ng-click="ClearAndRefresh()"><span class="glyphicon glyphicon-asterisk"></span></button>
+		</div>
+		<div class="gridStyle col-md-12" data-ng-grid="gridOptions2" data-ng-dblclick="AddCategoryItem();"></div>
+	</div>
+	
+</div>

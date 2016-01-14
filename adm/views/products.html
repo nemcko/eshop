@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="pg-header">
+	<h1>Produkty <small>zoznam produktov</small></h1>
+	</div>
+	
+	<div class="form-inline form-group col-md-12" role="form">
+		<div class="form-group">
+			<input type="text" class="form-control" id="txtSearch"
+				placeholder="Vyhľadať" ng_model="filterOptions.filterText" />
+		</div>
+		<button class="btn btn-primary" data-ng-click="DlgOpen(true)">Nový</button>
+		<button class="btn btn-info" data-ng-click="DlgOpen(false)">Zmena</button>
+		<button class="btn btn-danger" data-ng-click="DelRow()">Vymazať</button>
+		<button class="btn btn-default" data-ng-click="goToState('provars-product',true)">Varianty</button>
+		<button class="btn btn-default" data-ng-click="goToState('procat-product',true)">Kategórie produktu</button>				
+		<button class="btn btn-default" data-ng-click="goToState('proattrs-product',true)">Atribúty</button>
+		<button class="btn btn-default" data-ng-click="goToState('procnts-product',true)">Kontext</button>
+		<button class="btn btn-default" data-ng-click="goToState('aliases-product',true)">Aliasy</button>
+		<button type="button" class="btn btn-success" data-ng-click="Refresh()"><span class="glyphicon glyphicon-refresh"></span></button>
+		
+	</div>
+	<div class="gridStyle col-md-10" data-ng-grid="gridOptions" data-ng-dblclick="DlgOpen(false);"></div>
+</div>

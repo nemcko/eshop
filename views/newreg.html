@@ -1,0 +1,53 @@
+<div class="modal-content userform bg02" data-ng-controller="NewregCtrl" >
+<div class="modal-header ng-scope">
+	<button type="button" class="btn default close pull-right" data-ng-click="cancel()"><span class="glyphicon glyphicon-remove"></span></button>
+	<h3>Registrácia</h3>
+</div>	
+	<div class="modal-body form-horizontal" role="form">
+		<div class="form-group">
+			<label for="usr" class="col-sm-2 control-label">Používateľ</label>
+			<div class="col-sm-9">
+				<input type="text" checkinput="newreg.username" data-ng-maxlength="32" class="form-control" placeholder="Zadajte Vaše používateľské meno">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="email" class="col-sm-2 control-label">e-mail</label>
+			<div class="col-sm-9">
+				<input type="email" checkinput="newreg.email" data-ng-maxlength="64" class="form-control" placeholder="Zadajte Vašu adresu pre elektronickú poštu ">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="pwd" class="col-sm-2 control-label">Heslo</label>
+			<div class="col-sm-9">
+				<input type="password" checkinput="newreg.pwd" data-ng-maxlength="32" class="form-control" placeholder="Zadajte Vaše prístupové heslo">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="pwd" class="col-sm-2 control-label">Potvrdenie</label>
+			<div class="col-sm-9">
+				<input type="password" checkinput="pwd2" data-ng-maxlength="32" class="form-control" placeholder="Zadajte pre kontrolu Vaše prístupové heslo">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-9">			
+			<p>Všetky poskytnuté osobné údaje sú chránené v zmysle zákona číslo 428/2002 Zbierky zákonov „O ochrane osobných údajov“. 
+				Prevádzkovateľ Vás na písomné požiadanie vyradí z ktorejkoľvek zaregistrovanej služby.
+			</p>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" data-ng-model="chAgree"> Súhlasím so spracovaním mojich osobných údajov
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" checkinput="newreg.sendemail"> Súhlasím so zasielaním nových informácií o produktoch
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary pull-left" data-ng-click="cancel()">Návrat</button>
+		<button class="btn btn-success" data-ng-disabled="!chAgree" data-ng-click="CheckData()">Zaregistrovať sa v eshop-e</button>		
+	</div>
+</div>

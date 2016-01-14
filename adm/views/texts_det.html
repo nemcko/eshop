@@ -1,0 +1,54 @@
+<div class="modal-header">
+	<button type="button" class="close" data-ng-click="cancel()">&times;</button>
+	<h2>Text <small>detail</small></h2>	
+</div>
+<div class="modal-body">
+	<div class="form-horizontal" role="form">
+		<div class="form-group">
+			<label class="control-label col-md-3">ID</label>
+			<div class="col-md-8">
+				<input type="text" class="form-control" data-ng-readonly="!addnew" data-ng-model="data.idtxt" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-3">SK</label>
+			<div class="col-md-8">
+				<input type="text" class="form-control" data-ng-model="data.sk" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-3">EN</label>
+			<div class="col-md-8">
+				<input type="text" class="form-control" data-ng-model="data.en" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-3">CZ</label>
+			<div class="col-md-8">
+				<input type="text" class="form-control" data-ng-model="data.cz" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-3">DE</label>
+			<div class="col-md-8">
+				<input type="text" class="form-control" data-ng-model="data.de" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-3">PL</label>
+			<div class="col-md-8">
+				<input type="text" class="form-control" data-ng-model="data.pl" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-3">HU</label>
+			<div class="col-md-8">
+				<input type="text" class="form-control" data-ng-model="data.hu" />
+			</div>
+		</div>		
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" data-ng-click="ok()">OK</button>
+	<button class="btn btn-warning" data-ng-click="cancel()">Cancel</button>
+</div>
